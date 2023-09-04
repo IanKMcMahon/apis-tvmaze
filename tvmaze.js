@@ -3,6 +3,7 @@ const MISSING_IMAGE_URL = "https://tinyurl.com/missing-tv";
 const TVMAZE_API_URL = "http://api.tvmaze.com/";
 
 const $showsList = $("#showsList");
+const $episodesList = $("#episodesList");
 const $episodesArea = $("#episodesArea");
 const $searchForm = $("#searchForm");
 
@@ -62,10 +63,6 @@ $searchForm.on("submit", async function (evt) {
   evt.preventDefault();
   await searchForShowAndDisplay();
 });
-
-/** Given a show ID, get from API and return (promise) array of episodes:
- *      { id, name, season, number }
- */
 
 async function getEpisodesOfShow(id) {
   const response = await axios({
